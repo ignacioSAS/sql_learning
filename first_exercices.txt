@@ -1,0 +1,20 @@
+--1- Ver solo los productos de la categoría "abarrotes".--
+SELECT nombre_producto,categoria
+FROM productos
+WHERE categoria = 'abarrotes';
+
+--2.- Muestra todos los productos ordenados de el mas caro al mas barato mostrando su nombre y costo de compra--
+SELECT nombre_producto,costo_compra
+FROM productos
+ORDER BY costo_compra ASC;
+
+--3.- Objetivo: Ver solo el producto con el precio de venta más alto.
+SELECT nombre_producto,precio_venta
+FROM productos
+ORDER BY  precio_venta DESC
+LIMIT 1;
+
+--3.- Encontrar todos los empleados cuyo nombre empieza con "n".--
+SELECT nombre_empleado
+FROM empleados 
+WHERE nombre_empleado LIKE 'N%'
