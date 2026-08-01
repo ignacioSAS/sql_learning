@@ -37,17 +37,17 @@ Existen diferentes sentencias dentro de las consultas SQL las mas conocidas son.
 ---------CONSULTAS DE LECTURA-------------
 
 SELECT:Utilizada para especificar a que atributo se pretende acceder.
-FROM:Es utilizada  en conjunto con SELECT para especificar desde que tabla se pretende extraer la informacion
---EJEMPLO:      SELECT nombre
-                FROM nombres
+FROM:Es utilizada  en conjunto con SELECT para especificar desde que tabla se pretende extraer la informacion.
+--EJEMPLO:      SELECT nombre_columna
+                FROM nombres_tabla
 
 WHERE: Sentencia utilizada para proponer una condicion especifica que debe cumplir el dato que se extraer/modificar(esta no es
-        obligatoria en todas las consultas).
---EJEMPLO:      SELECT nombre
-                FROM nombres
+        obligatoria en todas las consultas pero si bastante recomendada para evitar cambios inecesarios o erroneos en tablas).
+--EJEMPLO:      SELECT nombre_columna
+                FROM nombre_tabla
                 WHERE fecha = 01-01-2000
 
-una manera de traducir estas seria selecciona,de,donde.
+Una manera de traducir estas seria (selecciona,de,donde.)
 
 -----------CONSULTAS DE ESCRITURA------------
 
@@ -58,17 +58,31 @@ VALUES:Se utiliza en conjunto con INSERT INTO para especificar los valores quee 
                 VALUES(int,'texto',float)       Tener en cuenta el  orden de los valores y la longitud de estos       
 
 UPDATE:Se utiliza para modificar los valores de una tabla
-SET:Se utiliza en conjunto con UPDATE para especificar cial sera el nuevo valor de la tabla
+SET:Se utiliza en conjunto con UPDATE para especificar cual sera el nuevo valor de la columna
 WHERE:  Sentencia utilizada para proponer la condicion especifica que debe cumplir el dato a modificar IMPORTANTE se recomienda
         su uso para evitar un mal manejo de datos ya que ayuda a condicionar donde sera cambiado el valor.
 
+Una manera dee traducir estas consultas seria (actualiza,cambiado,donde)
+
 --EJEMPLO:      UPDATE tabla
-                SET nuevo valor     *Tener especial cuidado ya qque si no se acompana de WHERE modificara toda la tabla*
+                SET nuevo valor     *Tener especial cuidado ya que si no se acompana de WHERE modificara toda la tabla*
                 WHERE valor anterior/valor especifico
 
 DELETE:Utilizado para borrar de manera permanente uno o varios registros de una tabla *USE CON PRECAUCION* suele acompanarse
         del comando WHERE para especificar  donde se ara el borrado.
 TRUNCATE TABLE tabla:Es utilizado para eliminar los valores de una tabla manteniendo la estructura de esta.
+
+-----------------------OPERADORES LOGICOS---------------------
+
+AND: Esta sentencia se utiliza para juntar multiples condiciones en una consulta en la cual ambas condiciones deben cumplerse.
+OR: Esta sentencia se utiliza para para juntar multiples condicionesen una consulta en la cual solo es necesaio que una de las
+        dos se cumpla.
+BETWEEN: Esta sentencia se utiliza para selecionar registro cuyos valores se encuentren dentro de un rango especifico.
+LIKE: Esta sentencia es utilizada para buscar un caracter en especifico este suele acompanarse de el comodin < % > y puede colocarse
+        al principio o al final de el caracter necesaio esto para denotar en la consulta si el caracter se encuentra al principio o
+        al final.
+IS NULL: Esta sentencia es utilizada para consultar si una tabla presenta valores nulos.
+IS NOT NULL: Esta sentencia es utilizada para consultar si una tabla no presenta valores nulos.
 
 -----------------------CONSULTA JOIN(unir)------------------
 
@@ -102,7 +116,10 @@ GROUP BY(agrupa por):Es utilizada para agrupar los registros de una tabla
                 FROM tabla
                 GROUP BY especificacion
 
-
+ASC: Esta sentencia se utiliza para mostrar los valores de una tabla en orden ascendente(Los valores se mostraran comenzando
+        por el valor mas bajo y aumentado 1,2,3).
+DESC: Esta sentencia se utliza para mostrar los valores en orden desendente(Los valores se mostraran comenzando por el mas
+        alto y desendiendo 3,2,1). 
 
 MAX(maximo):Esta consulta se utiliza para mostrar el valor maximo de una tabla o columna.
 --EJEMPLO:      SELECT MAX(nombre_columna)
