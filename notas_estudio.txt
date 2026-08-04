@@ -119,7 +119,9 @@ GROUP BY(agrupa por):Es utilizada para agrupar los registros de una tabla
 ASC: Esta sentencia se utiliza para mostrar los valores de una tabla en orden ascendente(Los valores se mostraran comenzando
         por el valor mas bajo y aumentado 1,2,3).
 DESC: Esta sentencia se utliza para mostrar los valores en orden desendente(Los valores se mostraran comenzando por el mas
-        alto y desendiendo 3,2,1). 
+        alto y desendiendo 3,2,1).
+ORDER BY: Tambien puede usarse para ordenar 2 o mas columna en una misma consulta por ejemplo ORDER BY nombre ASC, salario DESC esto
+	ordenara por nombre de (A-Z) y salario de mayor a menor (3,2,1) 
 
 MAX(maximo):Esta consulta se utiliza para mostrar el valor maximo de una tabla o columna.
 --EJEMPLO:      SELECT MAX(nombre_columna)
@@ -250,3 +252,11 @@ SYNTAXIS:SELECT
                 -
                 (SELECT SUM (precio) FROM compras JOIN productos ON compras.id_producto = productos.id_producto)
                 
+
+--------------------------------TRANSACCIONES SQL-----------------------------------------
+Las transacciones en sql son utilizadas para garantizar insertar o repetir valores inecesarios en nustras tablas
+
+SATART TRANSACTION:Marca el inicio de una transaccion,permite al usuario definir el bloque de operaciones que deben tratarse comouna unidad
+ROLLBACK:Se utiliza para desacer los cambios de una consulta,esta consulta es recomendable utlizar previo a terminar una consulta o si no se esta
+        seguro de que un resultado sera correcto ya que en el caso de que esta sea incorrecta no se realizara ningun cambio a nuestra tabla
+COMMIT:Comando utilizado para finalizar una transaccion con exito
